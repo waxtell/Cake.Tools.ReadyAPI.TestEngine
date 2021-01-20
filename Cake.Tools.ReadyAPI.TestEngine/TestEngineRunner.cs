@@ -9,9 +9,12 @@ namespace Cake.Tools.ReadyAPI.TestEngine
 {
     internal sealed class TestEngineRunner : Tool<TestEngineSettings>
     {
+        private readonly IToolLocator _toolLocator;
+
         public TestEngineRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner, IToolLocator tools)
             : base(fileSystem, environment, processRunner, tools)
         {
+            _toolLocator = tools;
         }
 
         // ReSharper disable once InconsistentNaming
@@ -27,7 +30,13 @@ namespace Cake.Tools.ReadyAPI.TestEngine
                 throw new ArgumentNullException(nameof(settings));
             }
 
-            using (var p = RunProcess(settings, GetArguments(projectFile, settings)))
+
+            //_toolLocator.RegisterFile();
+            var arguments = GetArguments(projectFile, settings);
+
+            arguments.Prepend(_toolLocator.Resolve("TestEngine.ps1").FullPath);
+
+            using (var p = RunProcess(settings, arguments))
             {
                 p.WaitForExit();
 
@@ -35,9 +44,9 @@ namespace Cake.Tools.ReadyAPI.TestEngine
             }
         }
 
-        protected override IEnumerable<string> GetToolExecutableNames() => new[] { "testengine", "testengine.cmd" };
+        protected override IEnumerable<string> GetToolExecutableNames() => new[] { "powershell", "powershell.exe" };
 
-        protected override string GetToolName() => "testengine";
+        protected override string GetToolName() => "powershell";
 
         internal static ProcessArgumentBuilder GetArguments(string projectFile, TestEngineSettings settings)
         {

@@ -8,11 +8,11 @@ namespace Cake.Tools.ReadyAPI.TestEngine
     /// <code>#addin Cake.Tools.ReadyAPI.TestEngine</code>
     /// </para>
     /// <para>
-    /// If TestEngine.ps1 is not included in the PATH you will have to provide the location of TestEngine.cmd as such
+    /// If TestEngine.ps1 is not included in the PATH you will have to provide the location of TestEngine.ps1 as such
     /// <example>
     /// <code>
     /// Setup(context => {
-    ///     context.Tools.RegisterFile("C:/Program Files/SmartBear/ReadyAPI-3.5.1/bin/testengine.cmd");
+    ///     context.Tools.RegisterFile("C:/Program Files/SmartBear/ReadyAPI-3.5.1/bin/testengine.ps1");
     /// });
     /// </code>
     /// </example>
@@ -39,7 +39,7 @@ namespace Cake.Tools.ReadyAPI.TestEngine
         /// </summary>
         /// <param name="context">The Cake context.</param>
         /// <param name="projectFile">The ReadyAPI project.</param>
-        /// <param name="settings">The settings that will be provided to TestEngine.cmd.</param>
+        /// <param name="settings">The settings that will be provided to TestEngine.ps1.</param>
         /// <returns></returns>
         [CakeMethodAlias]
         public static int RunProject(this ICakeContext context, string projectFile, TestEngineSettings settings)
