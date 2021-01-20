@@ -2,6 +2,7 @@
 
 A Cake AddIn that extends Cake with the [SmartBear ReadyAPI TestEngine](https://support.smartbear.com/readyapi/docs/testengine/admin/cli.html) command line tool.
 
+![Publish to nuget](https://github.com/waxtell/Cake.Tools.ReadyAPI.TestEngine/workflows/Publish%20to%20nuget/badge.svg)
 ![Build](https://github.com/waxtell/Cake.Tools.ReadyAPI.TestEngine/workflows/Build/badge.svg)
 
 ## Including addin
