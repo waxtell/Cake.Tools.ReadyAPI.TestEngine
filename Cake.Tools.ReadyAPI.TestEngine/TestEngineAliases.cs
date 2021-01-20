@@ -12,7 +12,7 @@ namespace Cake.Tools.ReadyAPI.TestEngine
     /// <example>
     /// <code>
     /// Setup(context => {
-    ///     context.Tools.RegisterFile("C:/Program Files/SmartBear/ReadyAPI-3.5.1/bin/testengine.ps1");
+    ///     context.Tools.RegisterFile("C:/Users/yourusername/AppData/Roaming/npm/testengine.ps1");
     /// });
     /// </code>
     /// </example>
@@ -30,7 +30,7 @@ namespace Cake.Tools.ReadyAPI.TestEngine
         ///     "your-readyapi-project.xml",
         ///     new TestEngineSettings()
         ///     {
-        ///         EndPoint = "http://localhost",
+        ///         ConfigurationFile = "config.json",
         ///         PrintReport = true
         ///     }
         /// );
@@ -42,6 +42,7 @@ namespace Cake.Tools.ReadyAPI.TestEngine
         /// <param name="settings">The settings that will be provided to TestEngine.ps1.</param>
         /// <returns></returns>
         [CakeMethodAlias]
+        // ReSharper disable once InconsistentNaming
         public static int RunProject(this ICakeContext context, string projectFile, TestEngineSettings settings)
         {
             return

@@ -30,8 +30,6 @@ namespace Cake.Tools.ReadyAPI.TestEngine
                 throw new ArgumentNullException(nameof(settings));
             }
 
-
-            //_toolLocator.RegisterFile();
             var arguments = GetArguments(projectFile, settings);
 
             arguments.Prepend(_toolLocator.Resolve("TestEngine.ps1").FullPath);
