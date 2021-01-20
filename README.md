@@ -40,10 +40,10 @@ Task("FunctionalTest")
         }
     );
 ```
-The extension expects TestEngine.cmd to be available in the system path, but you may explicitly set the tool location as such
+The extension expects TestEngine.ps1 to be available in the system path, but you may explicitly set the tool location as such
 
 ```csharp
 Setup(context => {
-    context.Tools.RegisterFile("C:/Users/yourusername/AppData/Roaming/npm/testengine.cmd");
+    context.Tools.RegisterFile("C:/Users/yourusername/AppData/Roaming/npm/testengine.ps1");
 });
 ```
