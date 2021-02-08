@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <VersionPrefix>1.1.0</VersionPrefix>
-    <VersionSuffix>alpha</VersionSuffix>
+    <Version>1.1.0-alpha</Version>
   </PropertyGroup>
 
   <PropertyGroup>
