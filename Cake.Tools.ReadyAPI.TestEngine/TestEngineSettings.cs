@@ -126,6 +126,11 @@ namespace Cake.Tools.ReadyAPI.TestEngine
         public int? TimeoutSeconds { get; set; }
 
         /// <summary>
+        /// Return an error when the project returns a "FAILED" result.
+        /// </summary>
+        public bool? TreatFailedRunAsError { get; set; }
+
+        /// <summary>
         /// Specifies the username used to connect to TestEngine.
         /// </summary>
         public string Username { get; set; }
@@ -134,5 +139,10 @@ namespace Cake.Tools.ReadyAPI.TestEngine
         /// Enables more detailed output.
         /// </summary>
         public bool? Verbose { get; set; }
+
+        /// <summary>
+        /// The endpoint to be used for HTTP requests sent by this test, in the format host:[port].
+        /// </summary>
+        public string EndPoint { get; set; }
     }
 }

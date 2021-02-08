@@ -82,6 +82,11 @@ namespace Cake.Tools.ReadyAPI.TestEngine
 
             arguments.Append("run project");
 
+            if (!string.IsNullOrWhiteSpace(settings.EndPoint))
+            {
+                arguments.Append($"endpoint={settings.EndPoint}");
+            }
+
             if (!string.IsNullOrWhiteSpace(settings.TestCase))
             {
                 arguments.Append($"testcase={settings.TestCase}");
@@ -105,6 +110,11 @@ namespace Cake.Tools.ReadyAPI.TestEngine
             if (settings.PrintReport == true)
             {
                 arguments.Append("printReport");
+            }
+
+            if (settings.TreatFailedRunAsError == true)
+            {
+                arguments.Append("treatFailedRunAsError");
             }
 
             if (settings.PriorityJob == true)
