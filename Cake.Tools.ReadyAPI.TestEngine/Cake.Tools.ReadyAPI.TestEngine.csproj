@@ -29,7 +29,9 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/waxtell/Cake.Tools.ReadyAPI.TestEngine.git</RepositoryUrl>
-    <PackageReleaseNotes>1.0.0- Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>1.1.0- Add preliminary support for EndPoint and TreatFailedRunAsError (pending SmartBear approval)
+      1.0.0- Initial release
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
