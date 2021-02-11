@@ -52,7 +52,7 @@ namespace Cake.Tools.ReadyAPI.TestEngine
 
             if (!string.IsNullOrEmpty(settings.ConfigurationFile))
             {
-                arguments.Append($"-c {settings.ConfigurationFile}");
+                arguments.Append($"-c '{settings.ConfigurationFile}'");
             }
 
             if (!string.IsNullOrWhiteSpace(settings.Password))
@@ -182,7 +182,7 @@ namespace Cake.Tools.ReadyAPI.TestEngine
                 arguments.Append($"proxyPassword={settings.ProxyPassword}");
             }
 
-            arguments.Append(projectFile);
+            arguments.Append($"'{projectFile}'");
 
             return arguments;
         }
