@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Version>1.1.0-alpha2</Version>
+    <Version>1.1.0-alpha3</Version>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -29,7 +29,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/waxtell/Cake.Tools.ReadyAPI.TestEngine.git</RepositoryUrl>
-    <PackageReleaseNotes>1.1.0.2- wrap filenames with single quotes
+    <PackageReleaseNotes>1.1.0.3- wrap filenames with DOUBLE quotes
+      1.1.0.2- wrap filenames with single quotes
       1.1.0.1- Update to latest Cake packages
       1.1.0- Add preliminary support for EndPoint and TreatFailedRunAsError (pending SmartBear approval)
       1.0.0- Initial release
