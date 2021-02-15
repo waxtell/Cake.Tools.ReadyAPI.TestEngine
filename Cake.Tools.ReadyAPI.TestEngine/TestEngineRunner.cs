@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Cake.Core;
 using Cake.Core.IO;
@@ -32,7 +33,20 @@ namespace Cake.Tools.ReadyAPI.TestEngine
 
             var arguments = GetArguments(projectFile, settings);
 
-            arguments.Prepend(_toolLocator.Resolve("TestEngine.ps1").FullPath);
+            var scriptLocation = _toolLocator.Resolve("TestEngine.ps1");
+
+            if (scriptLocation == null)
+            {
+                throw 
+                    new FileNotFoundException
+                    (
+                    "Please verify that testengine-cli is properly installed!  If TestEngine.ps1 is not available in the global path, you must explicitly register the tool location.", 
+                    "TestEngine.ps1"
+                    );
+            }
+
+            arguments.Prepend($"\"{scriptLocation.FullPath}\"");
+            arguments.Prepend("-File");
 
             using (var p = RunProcess(settings, arguments))
             {
@@ -52,7 +66,7 @@ namespace Cake.Tools.ReadyAPI.TestEngine
 
             if (!string.IsNullOrEmpty(settings.ConfigurationFile))
             {
-                arguments.Append($"-c '{settings.ConfigurationFile}'");
+                arguments.Append($"-c \"{settings.ConfigurationFile}\"");
             }
 
             if (!string.IsNullOrWhiteSpace(settings.Password))
@@ -182,7 +196,7 @@ namespace Cake.Tools.ReadyAPI.TestEngine
                 arguments.Append($"proxyPassword={settings.ProxyPassword}");
             }
 
-            arguments.Append($"'{projectFile}'");
+            arguments.Append($"\"{projectFile}\"");
 
             return arguments;
         }

@@ -15,7 +15,7 @@ namespace Cake.Tools.ReadyAPI.TestEngine.Tests
 
             var args = TestEngineRunner.GetArguments(string.Empty, settings);
 
-            Assert.Equal(1, args.Count(argument => argument.Render() == "-c 'HelloWorld.json'"));
+            Assert.Equal(1, args.Count(argument => argument.Render() == "-c \"HelloWorld.json\""));
         }
 
         [Fact]
