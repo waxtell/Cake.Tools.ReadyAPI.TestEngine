@@ -17,7 +17,7 @@ namespace Cake.Tools.ReadyAPI.TestEngine
         /// <summary>
         /// Specifies the environment to use during the test run.
         /// </summary>
-        public string Environment { get; set; }
+        public string HostAndPort { get; set; }
 
         /// <summary>
         /// Specifies the address of TestEngine you want to connect to.
@@ -124,11 +124,6 @@ namespace Cake.Tools.ReadyAPI.TestEngine
         /// Specifies a timeout for a test job run in seconds. If a test job runs for the specified amount of time, TestEngine stops it with the FAILED status.
         /// </summary>
         public int? TimeoutSeconds { get; set; }
-
-        /// <summary>
-        /// Return an error when the project returns a "FAILED" result.
-        /// </summary>
-        public bool? TreatFailedRunAsError { get; set; }
 
         /// <summary>
         /// Specifies the username used to connect to TestEngine.

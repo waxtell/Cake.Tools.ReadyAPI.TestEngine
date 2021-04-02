@@ -106,9 +106,9 @@ namespace Cake.Tools.ReadyAPI.TestEngine
                 arguments.Append($"testcase={settings.TestCase}");
             }
 
-            if (!string.IsNullOrWhiteSpace(settings.Environment))
+            if (!string.IsNullOrWhiteSpace(settings.HostAndPort))
             {
-                arguments.Append($"environment={settings.Environment}");
+                arguments.Append($"hostAndPort={settings.HostAndPort}");
             }
 
             if (!string.IsNullOrWhiteSpace(settings.OutputFolder))
@@ -124,11 +124,6 @@ namespace Cake.Tools.ReadyAPI.TestEngine
             if (settings.PrintReport == true)
             {
                 arguments.Append("printReport");
-            }
-
-            if (settings.TreatFailedRunAsError == true)
-            {
-                arguments.Append("treatFailedRunAsError");
             }
 
             if (settings.PriorityJob == true)

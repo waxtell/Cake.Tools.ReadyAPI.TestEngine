@@ -6,42 +6,42 @@ namespace Cake.Tools.ReadyAPI.TestEngine.Tests
     public partial class TestEngineRunnerTests
     {
         [Fact]
-        public void GetArguments_TreatFailedRunAsErrorTrueHasArgument()
+        public void GetArguments_HostAndPortProvidedHasArgument()
         {
             var settings = new TestEngineSettings
             {
-                TreatFailedRunAsError = true
+                HostAndPort = "localhost:8080"
             };
 
             var args = TestEngineRunner.GetArguments(string.Empty, settings);
 
-            Assert.Equal(1, args.Count(argument => argument.Render() == "treatFailedRunAsError"));
+            Assert.Equal(1, args.Count(argument => argument.Render() == "hostAndPort=localhost:8080"));
         }
 
         [Fact]
-        public void GetArguments_TreatFailedRunAsErrorFalseNoArgument()
+        public void GetArguments_EmptyHostAndPortNoArgument()
         {
             var settings = new TestEngineSettings
             {
-                TreatFailedRunAsError = false
+                HostAndPort = string.Empty
             };
 
             var args = TestEngineRunner.GetArguments(string.Empty, settings);
 
-            Assert.Equal(0, args.Count(argument => argument.Render() == "treatFailedRunAsError"));
+            Assert.Equal(0, args.Count(argument => argument.Render().StartsWith("hostAndPort")));
         }
 
         [Fact]
-        public void GetArguments_TreatFailedRunAsErrorNullNoArgument()
+        public void GetArguments_NullHostAndPortNoArgument()
         {
             var settings = new TestEngineSettings
             {
-                TreatFailedRunAsError = null
+                HostAndPort = null
             };
 
             var args = TestEngineRunner.GetArguments(string.Empty, settings);
 
-            Assert.Equal(0, args.Count(argument => argument.Render() == "treatFailedRunAsError"));
+            Assert.Equal(0, args.Count(argument => argument.Render().StartsWith("hostAndPort")));
         }
     }
 }
