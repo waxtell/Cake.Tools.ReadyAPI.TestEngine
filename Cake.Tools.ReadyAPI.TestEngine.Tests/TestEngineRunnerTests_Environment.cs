@@ -6,42 +6,42 @@ namespace Cake.Tools.ReadyAPI.TestEngine.Tests
     public partial class TestEngineRunnerTests
     {
         [Fact]
-        public void GetArguments_EndPointProvidedHasArgument()
+        public void GetArguments_EnvironmentProvidedHasArgument()
         {
             var settings = new TestEngineSettings
             {
-                EndPoint = "localhost:8080"
+                Environment = "dev"
             };
 
             var args = TestEngineRunner.GetArguments(string.Empty, settings);
 
-            Assert.Equal(1, args.Count(argument => argument.Render() == "endpoint=localhost:8080"));
+            Assert.Equal(1, args.Count(argument => argument.Render() == "environment=dev"));
         }
 
         [Fact]
-        public void GetArguments_EmptyEndPointNoArgument()
+        public void GetArguments_EmptyEnvironmentNoArgument()
         {
             var settings = new TestEngineSettings
             {
-                EndPoint = string.Empty
+                Environment = string.Empty
             };
 
             var args = TestEngineRunner.GetArguments(string.Empty, settings);
 
-            Assert.Equal(0, args.Count(argument => argument.Render().StartsWith("endpoint")));
+            Assert.Equal(0, args.Count(argument => argument.Render().StartsWith("environment")));
         }
 
         [Fact]
-        public void GetArguments_NullEndPointNoArgument()
+        public void GetArguments_NullEnvironmentNoArgument()
         {
             var settings = new TestEngineSettings
             {
-                EndPoint = null
+                Environment = null
             };
 
             var args = TestEngineRunner.GetArguments(string.Empty, settings);
 
-            Assert.Equal(0, args.Count(argument => argument.Render().StartsWith("endpoint")));
+            Assert.Equal(0, args.Count(argument => argument.Render().StartsWith("environment")));
         }
     }
 }

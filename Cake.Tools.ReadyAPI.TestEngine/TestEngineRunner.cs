@@ -96,9 +96,9 @@ namespace Cake.Tools.ReadyAPI.TestEngine
 
             arguments.Append("run project");
 
-            if (!string.IsNullOrWhiteSpace(settings.EndPoint))
+            if (!string.IsNullOrWhiteSpace(settings.Environment))
             {
-                arguments.Append($"endpoint={settings.EndPoint}");
+                arguments.Append($"environment={settings.Environment}");
             }
 
             if (!string.IsNullOrWhiteSpace(settings.TestCase))

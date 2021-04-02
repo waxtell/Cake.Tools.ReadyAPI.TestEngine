@@ -15,7 +15,7 @@ namespace Cake.Tools.ReadyAPI.TestEngine
         public string ConfigurationFile { get; set; }
 
         /// <summary>
-        /// Specifies the environment to use during the test run.
+        /// The endpoint to be used for HTTP requests sent by this test, in the format host:[port].
         /// </summary>
         public string HostAndPort { get; set; }
 
@@ -136,8 +136,8 @@ namespace Cake.Tools.ReadyAPI.TestEngine
         public bool? Verbose { get; set; }
 
         /// <summary>
-        /// The endpoint to be used for HTTP requests sent by this test, in the format host:[port].
+        /// Specifies the environment to use during the test run.
         /// </summary>
-        public string EndPoint { get; set; }
+        public string Environment { get; set; }
     }
 }
